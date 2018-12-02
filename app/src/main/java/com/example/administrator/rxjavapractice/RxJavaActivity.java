@@ -115,13 +115,13 @@ public class RxJavaActivity extends AppCompatActivity implements View.OnClickLis
             public void call(Integer integer) {
                 Log.d(TAG, "call: " + integer);
             }
-        })
+        });
     }
 
     private void retry() {
-        Observable.create(new Observable.OnSubscribe<Object>() {
+        Observable.create(new Observable.OnSubscribe<Integer>() {
             @Override
-            public void call(Subscriber<? super Object> subscriber) {
+            public void call(Subscriber<? super Integer> subscriber) {
                 try {
                     for (int i = 0; i < 5; i++) {
                         if (i == 3) {
@@ -138,17 +138,17 @@ public class RxJavaActivity extends AppCompatActivity implements View.OnClickLis
         }).retry(2).subscribe(new Subscriber<Integer>() {
             @Override
             public void onCompleted() {
-                Log.i(TAG, "onCompleted: ");
+                Log.i(TAG,"onCompleted");
             }
 
             @Override
             public void onError(Throwable e) {
-                Log.e(TAG, "onError: ", );
+                Log.i(TAG,"onError:"+e.getMessage()) ;
             }
 
             @Override
             public void onNext(Integer integer) {
-                Log.d(TAG, "onNext: ");
+                Log.i(TAG,"onNext:"+integer) ;
             }
         });
     }
@@ -168,7 +168,7 @@ public class RxJavaActivity extends AppCompatActivity implements View.OnClickLis
             public void call(String s) {
                 Log.d(TAG, "call: " + s);
             }
-        })
+        });
     }
 
     private void zip() {
