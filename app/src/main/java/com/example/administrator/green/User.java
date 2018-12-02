@@ -16,7 +16,7 @@ public class User {
         this.age = age;
     }
 
-  -*  @Generated(hash = 1309193360)
+   @Generated(hash = 1309193360)
     public User(Long id, String name, int age) {
         this.id = id;
         this.name = name;
